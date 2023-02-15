@@ -4,4 +4,4 @@ server:
 chatbot-api:
   groupId: 51112124222554
   cookie: zsxq_access_token=A6D95223-98C4-695E-7DA8-C7988183B9CB_E07264F662984160; zsxqsessionid=a58e3cf6c2494d4a354b8a48d30b5326; abtest_env=product
-  openAiKey: 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
+  openAiKey:
