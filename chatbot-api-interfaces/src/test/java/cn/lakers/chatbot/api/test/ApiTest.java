@@ -20,6 +20,7 @@ import java.io.IOException;
  */
 public class ApiTest {
 
+
     @Test
     public void questions() throws IOException {
         CloseableHttpClient httpClient = HttpClientBuilder.create().build();
@@ -58,4 +59,24 @@ public class ApiTest {
             System.out.println(response.getStatusLine().getStatusCode());
         }
     }
+
+    @Test
+    public void test_chatGPT() throws IOException {
+        CloseableHttpClient httpClient = HttpClientBuilder.create().build();
+        HttpPost httpPost = new HttpPost("https://api.openai.com/v1/completions");
+        httpPost.addHeader("Authorization", "Bearer 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");
+        httpPost.addHeader("content-type", "application/json");
+        String json = "{\"model\": \"text-davinci-003\", \"prompt\": \"帮我写一个java冒泡排序\", \"temperature\": 0, \"max_tokens\": 1024}";
+        StringEntity entity = new StringEntity(json, ContentType.create("text/json", "UTF-8"));
+        httpPost.setEntity(entity);
+        CloseableHttpResponse response = httpClient.execute(httpPost);
+        if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
+            String res = EntityUtils.toString(response.getEntity());
+            System.out.println(res);
+        } else {
+            System.out.println(response.getStatusLine().getStatusCode());
+        }
+    }
+
+
 }
