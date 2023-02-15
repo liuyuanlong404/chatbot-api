@@ -43,7 +43,7 @@ public class ZsxqApi implements IZsxqApi {
         CloseableHttpResponse response = httpClient.execute(httpGet);
         if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
             String json = EntityUtils.toString(response.getEntity());
-            log.info("拉去提问数据。groupId:{} jsonStr:{}", groupId, json);
+            log.info("拉取提问数据。groupId:{} jsonStr:{}", groupId, json);
             return JSON.parseObject(json, Root.class);
         } else {
             throw new RuntimeException("请求失败！");

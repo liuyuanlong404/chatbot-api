@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  *
  * @author lakers
  */
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "cn.lakers.chatbot.api")
 public class ApiApplication {
 
     public static void main(String[] args) {

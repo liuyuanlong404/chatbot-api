@@ -42,7 +42,7 @@ public class OpenAi implements IOpenAI {
         String json = "{\"model\": \"text-davinci-003\", \"prompt\": \" " + question + "\", \"temperature\": 0, \"max_tokens\": 1024}";
         StringEntity entity = new StringEntity(json, ContentType.create("text/json", "UTF-8"));
         httpPost.setEntity(entity);
-        CloseableHttpResponse response = null;
+        CloseableHttpResponse response;
         try {
             response = httpClient.execute(httpPost);
         } catch (IOException e) {
@@ -50,7 +50,7 @@ public class OpenAi implements IOpenAI {
         }
         if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
             String res = EntityUtils.toString(response.getEntity());
-            log.info("chatGPT请求回复：{}", res);
+            log.info("chatGPT回复：{}", res);
             AIAnswer aiAnswer = JSON.parseObject(res, AIAnswer.class);
             StringBuilder answers = new StringBuilder();
             List<Choices> choices = aiAnswer.getChoices();
