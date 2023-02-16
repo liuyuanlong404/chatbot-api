@@ -1,4 +1,4 @@
-package cn.lakers.chatbot.api.infrastructure;
+package cn.lakers.chatbot.api.application.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
