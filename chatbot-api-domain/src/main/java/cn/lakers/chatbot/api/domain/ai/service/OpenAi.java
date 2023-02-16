@@ -39,7 +39,7 @@ public class OpenAi implements IOpenAI {
         HttpPost httpPost = new HttpPost("https://api.openai.com/v1/completions");
         httpPost.addHeader("Authorization", "Bearer " + openAiKey);
         httpPost.addHeader("content-type", "application/json");
-        String json = "{\"model\": \"text-davinci-003\", \"prompt\": \" " + question + "\", \"temperature\": 0, \"max_tokens\": 1024}";
+        String json = "{\"model\": \"text-davinci-003\", \"prompt\": \" " + question + "\", \"temperature\": 0, \"max_tokens\": 3900}";
         StringEntity entity = new StringEntity(json, ContentType.create("text/json", "UTF-8"));
         httpPost.setEntity(entity);
         CloseableHttpResponse response;

@@ -59,7 +59,19 @@ public class SpringBootRunTest {
 
     @Test
     public void test_openAi() throws IOException {
-        String doChatGPT = openAI.doChatGPT("帮我写一个java冒泡排序！");
+        String doChatGPT = openAI.doChatGPT("CloseableHttpClient httpClient = HttpClientBuilder.create().build();\n" +
+                "        HttpGet httpGet = new HttpGet(\"https://api.zsxq.com/v2/groups/\" + groupId + \"/topics?scope=all&count=20\");\n" +
+                "        httpGet.addHeader(\"cookie\", cookie);\n" +
+                "        httpGet.addHeader(\"content-type\", \"application/json; charset=UTF-8\");\n" +
+                "        httpGet.addHeader(\"user-agent\", \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36 Edg/109.0.1518.78\");\n" +
+                "        CloseableHttpResponse response = httpClient.execute(httpGet);\n" +
+                "        if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {\n" +
+                "            String json = EntityUtils.toString(response.getEntity());\n" +
+                "            log.info(\"拉取提问数据。groupId:{} jsonStr:{}\", groupId, json);\n" +
+                "            return JSON.parseObject(json, Root.class);\n" +
+                "        } else {\n" +
+                "            throw new RuntimeException(\"请求失败！\");\n" +
+                "        }");
         logger.info("测试回答{}", doChatGPT);
     }
 }
