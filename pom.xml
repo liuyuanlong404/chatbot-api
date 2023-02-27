@@ -76,6 +76,11 @@
                 <artifactId>selenium-api</artifactId>
                 <version>3.141.59</version>
             </dependency>
+            <dependency>
+                <groupId>com.lakers</groupId>
+                <artifactId>digest-spring-boot-starter</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

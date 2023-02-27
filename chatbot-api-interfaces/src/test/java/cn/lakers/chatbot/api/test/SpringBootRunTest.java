@@ -5,6 +5,7 @@ import cn.lakers.chatbot.api.domain.zsxq.IZsxqApi;
 import cn.lakers.chatbot.api.domain.zsxq.model.vo.Root;
 import cn.lakers.chatbot.api.domain.zsxq.model.vo.Topics;
 import com.alibaba.fastjson.JSON;
+import com.lakers.digest.Digest;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -26,7 +27,7 @@ import java.util.List;
 @SpringBootTest
 public class SpringBootRunTest {
 
-    private Logger logger = LoggerFactory.getLogger(SpringBootRunTest.class);
+    private final Logger logger = LoggerFactory.getLogger(SpringBootRunTest.class);
     @Value("${chatbot-api.groupId}")
     private String groupId;
 
@@ -38,6 +39,14 @@ public class SpringBootRunTest {
 
     @Resource
     private IOpenAI openAI;
+
+    @Resource
+    private Digest digest;
+
+    @Test
+    public void test_digest() {
+        logger.info(digest.digest("123456"));
+    }
 
     @Test
     public void test_zsxqApi() throws IOException {

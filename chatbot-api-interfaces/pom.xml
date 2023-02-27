@@ -72,6 +72,10 @@
             <artifactId>chatbot-api-application</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>com.lakers</groupId>
+            <artifactId>digest-spring-boot-starter</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
